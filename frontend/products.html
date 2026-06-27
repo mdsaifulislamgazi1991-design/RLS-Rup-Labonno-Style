@@ -7,23 +7,42 @@
 
 <h1>🛍️ Our Products</h1>
 
+<!-- CATEGORY BUTTONS -->
+<div style="margin:10px;">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('Beauty')">Beauty</button>
+  <button onclick="filterCategory('Health')">Health</button>
+</div>
+
 <div id="product-list"></div>
 
 <script>
+
+let allProducts = [];
+
+// LOAD PRODUCTS
 fetch('../products/products.json')
 .then(res => res.json())
 .then(data => {
+    allProducts = data;
+    showProducts(allProducts);
+});
+
+// SHOW PRODUCTS FUNCTION
+function showProducts(products){
     let html = "";
 
-    data.forEach(p => {
+    products.forEach(p => {
         html += `
         <div style="border:1px solid #ccc; padding:10px; margin:10px;">
             
+            <img src="../${p.image}" style="width:150px; height:150px; object-fit:cover; border-radius:10px;">
+
             <h2>${p.name}</h2>
             <p>Price: ${p.price} BDT</p>
             <p>${p.description}</p>
 
-            <!-- WhatsApp Order Button -->
+            <!-- WhatsApp Order -->
             <a href="https://wa.me/880178196025?text=I%20want%20to%20order%20${p.name}" target="_blank">
                 <button>📲 Order on WhatsApp</button>
             </a>
@@ -38,7 +57,18 @@ fetch('../products/products.json')
     });
 
     document.getElementById('product-list').innerHTML = html;
-});
+}
+
+// CATEGORY FILTER
+function filterCategory(cat){
+    if(cat === 'all'){
+        showProducts(allProducts);
+    } else {
+        let filtered = allProducts.filter(p => p.category === cat);
+        showProducts(filtered);
+    }
+}
+
 </script>
 
 </body>
