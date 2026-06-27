@@ -14,16 +14,29 @@ fetch('../products/products.json')
 .then(res => res.json())
 .then(data => {
     let html = "";
+
     data.forEach(p => {
         html += `
         <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            
             <h2>${p.name}</h2>
             <p>Price: ${p.price} BDT</p>
             <p>${p.description}</p>
-            <button onclick="alert('Order Coming Soon')">Order Now</button>
+
+            <!-- WhatsApp Order Button -->
+            <a href="https://wa.me/880178196025?text=I%20want%20to%20order%20${p.name}" target="_blank">
+                <button>📲 Order on WhatsApp</button>
+            </a>
+
+            <!-- Call Button -->
+            <a href="tel:01350913620">
+                <button>📞 Call Now</button>
+            </a>
+
         </div>
         `;
     });
+
     document.getElementById('product-list').innerHTML = html;
 });
 </script>
