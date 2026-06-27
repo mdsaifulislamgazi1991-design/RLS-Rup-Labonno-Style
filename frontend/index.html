@@ -20,8 +20,8 @@ background:#f5f5f5;
 header{
 background:#0d6efd;
 color:#fff;
-padding:20px;
 text-align:center;
+padding:20px;
 }
 
 nav{
@@ -30,7 +30,7 @@ padding:15px;
 display:flex;
 justify-content:center;
 align-items:center;
-gap:15px;
+gap:20px;
 flex-wrap:wrap;
 box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
@@ -39,22 +39,6 @@ nav a{
 text-decoration:none;
 color:#333;
 font-weight:bold;
-}
-
-nav input{
-padding:8px;
-border:1px solid #ccc;
-border-radius:5px;
-width:180px;
-}
-
-nav button{
-padding:8px 15px;
-background:#0d6efd;
-color:#fff;
-border:none;
-border-radius:5px;
-cursor:pointer;
 }
 
 .hero{
@@ -79,9 +63,7 @@ color:#fff;
 padding:12px 25px;
 text-decoration:none;
 border-radius:6px;
-}
-
-.features{
+}.features{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
@@ -111,29 +93,22 @@ margin-top:40px;
 <header>
 <h1>🛍️ RLS Multi Vendor Store</h1>
 <p>Trusted Online Shopping in Bangladesh</p>
-</header><nav>
+</header>
+
+<nav>
 <a href="index.html">🏠 Home</a>
 <a href="products.html">🛒 Products</a>
-
-<input type="text" id="searchInput" placeholder="Search Product">
-
-<button onclick="searchProduct()">Search</button>
+<a href="search.html">🔍 Search</a>
 </nav>
 
 <section class="hero">
 <h1>Welcome to RLS Store</h1>
-
 <p>Quality Products • Cash on Delivery • Trusted Service</p>
 
-<a href="products.html" class="btn">
-View Products
-</a>
-
+<a href="products.html" class="btn">View Products</a>
 </section>
 
-<section class="features">
-
-<div class="card">
+<section class="features"><div class="card">
 <h2>🚚 Fast Delivery</h2>
 <p>Cash on Home Delivery all over Bangladesh.</p>
 </div>
@@ -145,10 +120,17 @@ View Products
 
 <div class="card">
 <h2>📞 Customer Support</h2>
-<p>WhatsApp & Call Support Available 24/7.</p>
-</div><div class="card">
+<p>WhatsApp & Call Support Available.</p>
+</div>
+
+<div class="card">
 <h2>🔒 Secure Payment</h2>
 <p>100% Safe & Secure Shopping Experience.</p>
+</div>
+
+<div class="card">
+<h2>⭐ Trusted Store</h2>
+<p>Reliable service with happy customers.</p>
 </div>
 
 </section>
@@ -160,13 +142,18 @@ View Products
 function searchProduct() {
     var text = document.getElementById("searchInput").value.toLowerCase().trim();
 
-    if (text == "") {
-        alert("Please enter a product name.");
-    } else {
+    if(text === "") {
+        alert("Please type something to search");
+        return;
+    }
+
+    if(text.includes("dress") || text.includes("shirt") || text.includes("bag")) {
         window.location.href = "products.html";
+    } else {
+        alert("Product not found");
     }
 }
 </script>
 
 </body>
-</html>
+    </html>
