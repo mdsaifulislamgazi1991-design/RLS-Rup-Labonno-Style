@@ -3,92 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Search Products - RLS Multi Vendor Store</title>
+<title>Search Products</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
+font-family:Arial,sans-serif;
 background:#f5f5f5;
-}
-
-header{
-background:#0d6efd;
-color:white;
 text-align:center;
-padding:20px;
-}
-
-.container{
-max-width:800px;
-margin:30px auto;
-padding:20px;
-background:white;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
+padding:40px;
 }
 
 input{
-width:100%;
+width:280px;
 padding:12px;
-border:1px solid #ccc;
-border-radius:6px;
-margin-bottom:20px;
-}
-
-.result{
-padding:15px;
-border:1px solid #ddd;
-border-radius:8px;
-margin-bottom:15px;
+font-size:16px;
 }
 
 button{
-padding:10px 20px;
+padding:12px 20px;
 background:#0d6efd;
 color:white;
 border:none;
-border-radius:5px;
 cursor:pointer;
 }
 
-footer{
-margin-top:40px;
-background:#222;
-color:white;
-text-align:center;
-padding:20px;
+.result{
+margin-top:30px;
+font-size:20px;
+font-weight:bold;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-<h1>🔍 Search Products</h1>
-</header>
+<h1>🔍 Search Product</h1>
 
-<div class="container">
+<input type="text" id="search" placeholder="Type: dress, shirt, bag">
 
-<input type="text" placeholder="Search Product...">
+<button onclick="findProduct()">Search</button>
 
-<div class="result">
-<h3>Herbal Face Pack</h3>
-<p>Price: ৳250</p>
-<button>View Product</button>
-</div>
+<div class="result" id="result"></div>
 
-</div>
+<script>
+function findProduct(){
+var text=document.getElementById("search").value.toLowerCase();
 
-<footer>
-© 2026 RLS Multi Vendor Store
-</footer>
+if(text=="dress"){
+document.getElementById("result").innerHTML="👗 Dress Available";
+}
+else if(text=="shirt"){
+document.getElementById("result").innerHTML="👕 Shirt Available";
+}
+else if(text=="bag"){
+document.getElementById("result").innerHTML="👜 Bag Available";
+}
+else{
+document.getElementById("result").innerHTML="❌ Product Not Found";
+}
+}
+</script>
 
 </body>
 </html>
