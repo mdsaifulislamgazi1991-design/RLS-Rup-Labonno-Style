@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RLS Products</title>
+</head>
+<body>
+
+<h1>🛍️ Our Products</h1>
+
+<div id="product-list"></div>
+
+<script>
+fetch('../products/products.json')
+.then(res => res.json())
+.then(data => {
+    let html = "";
+    data.forEach(p => {
+        html += `
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            <h2>${p.name}</h2>
+            <p>Price: ${p.price} BDT</p>
+            <p>${p.description}</p>
+            <button onclick="alert('Order Coming Soon')">Order Now</button>
+        </div>
+        `;
+    });
+    document.getElementById('product-list').innerHTML = html;
+});
+</script>
+
+</body>
+</html>
