@@ -8,5 +8,25 @@
     "image": "assets/images/product1.jpg",
     "description": "Natural herbal face pack for glowing skin",
     "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Neem Powder",
+    "price": 180,
+    "category": "Health",
+    "stock": 15,
+    "image": "assets/images/product2.jpg",
+    "description": "Pure neem powder for skin & hair care",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "name": "Turmeric Powder",
+    "price": 200,
+    "category": "Beauty",
+    "stock": 12,
+    "image": "assets/images/product3.jpg",
+    "description": "Natural turmeric for glowing skin",
+    "status": "active"
   }
 ]
