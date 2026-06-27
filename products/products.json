@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Herbal Face Pack",
+    "price": 250,
+    "category": "Beauty",
+    "stock": 10,
+    "image": "assets/images/product1.jpg",
+    "description": "Natural herbal face pack for glowing skin",
+    "status": "active"
+  }
+]
